@@ -1,4 +1,5 @@
 import logo from "../assets/logo.webp";
+import ColorModeSwitch from "./ColorModeSwitch";
 const Navbar = () => {
   const toggleTheme = () => {
     const html = document.documentElement;
@@ -13,16 +14,11 @@ const Navbar = () => {
     }
   };
   return (
-    <div className="flex items-center dark:bg-gray-800">
+    <div className="flex items-center dark:bg-gray-800 justify-between">
       <img src={logo} alt="logo" className="w-[60px] h-[60px]" />
-      <span className="font-bold text-black dark:text-white">GameHub</span>
-
-      <button
-        onClick={toggleTheme}
-        className="px-3 py-1 rounded-md bg-black text-white dark:bg-white dark:text-black"
-      >
-        Toggle
-      </button>
+      <div className="p-2">
+        <ColorModeSwitch />
+      </div>
     </div>
   );
 };
