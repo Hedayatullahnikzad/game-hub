@@ -1,4 +1,5 @@
 import type { Game } from "../hooks/useGames";
+import PlatformIconList from "./PlatformIconList";
 
 interface Props {
   game: Game;
@@ -18,6 +19,10 @@ const GameCard = ({ game }: Props) => {
         <h2 className="text-lg font-semibold text-gray-900 dark:text-white">
           {game.name}
         </h2>
+        {/* Platforms */}
+        <PlatformIconList
+          platforms={game.parent_platforms.map((p) => p.platform)}
+        />
       </div>
     </div>
   );
