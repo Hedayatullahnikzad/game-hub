@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import "./App.css";
 import Navbar from "./components/Navbar";
 import GameGrid from "./components/GameGrid";
+import GenreList from "./components/GenreList";
 
 function App() {
   useEffect(() => {
@@ -18,7 +19,9 @@ function App() {
       <div className="col-span-2">
         <Navbar />
       </div>
-      <div className="hidden lg:block">Aside</div>
+      <div className="hidden lg:block">
+        <GenreList />
+      </div>
       <div className="col-span-full lg:col-span-1 lg:col-start-2">
         <GameGrid />
       </div>
