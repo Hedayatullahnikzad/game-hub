@@ -1,9 +1,9 @@
 // GameCardSkeleton.tsx
-// This component is shown while game data is loading
+// Skeleton content only (container styles removed)
 
 const GameCardSkeleton = () => {
   return (
-    <div className="rounded-xl overflow-hidden shadow-md bg-white dark:bg-gray-800 animate-pulse">
+    <div className="animate-pulse">
       {/* Image skeleton */}
       <div className="h-48 bg-gray-300 dark:bg-gray-700" />
 

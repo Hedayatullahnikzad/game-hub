@@ -1,5 +1,6 @@
 import useGames from "../hooks/useGames";
 import GameCard from "./GameCard";
+import GameCardContainer from "./GameCardContainer";
 import GameCardSkeleton from "./GameCardSkeleton";
 
 const GameGrid = () => {
@@ -11,15 +12,23 @@ const GameGrid = () => {
       {/* Error message */}
       {error && <p className="text-red-500 mb-4">{error}</p>}
 
-      {/* Game grid */}
+      {/* Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 p-2">
-        {/* Show skeletons while loading */}
+        {/* Loading skeletons */}
         {isLoading &&
-          skeletons.map((_, index) => <GameCardSkeleton key={index} />)}
+          skeletons.map((_, index) => (
+            <GameCardContainer key={index}>
+              <GameCardSkeleton />
+            </GameCardContainer>
+          ))}
 
-        {/* Show real game cards after loading */}
+        {/* Loaded game cards */}
         {!isLoading &&
-          games.map((game) => <GameCard key={game.id} game={game} />)}
+          games.map((game) => (
+            <GameCardContainer key={game.id}>
+              <GameCard game={game} />
+            </GameCardContainer>
+          ))}
       </div>
     </>
   );
