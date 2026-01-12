@@ -4,7 +4,7 @@ import GameCardContainer from "./GameCardContainer";
 import GameCardSkeleton from "./GameCardSkeleton";
 
 const GameGrid = () => {
-  const { games, error, isLoading } = useGames();
+  const { data, error, isLoading } = useGames();
   // Number of skeleton cards to show while loading
   const skeletons = Array.from({ length: 6 });
   return (
@@ -24,7 +24,7 @@ const GameGrid = () => {
 
         {/* Loaded game cards */}
         {!isLoading &&
-          games.map((game) => (
+          data.map((game) => (
             <GameCardContainer key={game.id}>
               <GameCard game={game} />
             </GameCardContainer>
