@@ -14,17 +14,35 @@ function App() {
       document.documentElement.classList.remove("dark");
     }
   }, []);
+
   return (
-    <div className="grid grid-cols-[300px_1fr] grid-rows-[auto_1fr] bg-white dark:bg-gray-900 text-black dark:text-white">
-      <div className="col-span-2">
+    <div
+      className="
+        grid
+        grid-rows-[auto_1fr]
+        grid-cols-1
+        lg:grid-cols-[200px_1fr]
+        bg-white
+        dark:bg-gray-900
+        text-black
+        dark:text-white
+        min-h-screen
+      "
+    >
+      {/* Navbar (always full width) */}
+      <div className="col-span-1 lg:col-span-2">
         <Navbar />
       </div>
-      <div className="hidden lg:block">
+
+      {/* Aside / Genre list (hidden on mobile) */}
+      <aside className="hidden lg:block px-2">
         <GenreList />
-      </div>
-      <div className="col-span-full lg:col-span-1 lg:col-start-2">
+      </aside>
+
+      {/* Main content */}
+      <main>
         <GameGrid />
-      </div>
+      </main>
     </div>
   );
 }
