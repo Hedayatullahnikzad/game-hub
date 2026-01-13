@@ -2,7 +2,15 @@ import useGenres from "../hooks/useGenres";
 import getCroppedImageUrl from "../services/image-url";
 
 const GenreList = () => {
-  const { data } = useGenres();
+  const { data, isLoading, error } = useGenres();
+  // Show spinner while loading genres
+  if (error) return null;
+  if (isLoading)
+    return (
+      <div className="flex justify-center py-4">
+        <div className="h-6 w-6 animate-spin rounded-full border-2 border-gray-300 border-t-gray-600"></div>
+      </div>
+    );
 
   return (
     <ul className="space-y-3 ">
