@@ -1,10 +1,14 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import Navbar from "./components/Navbar";
 import GameGrid from "./components/GameGrid";
 import GenreList from "./components/GenreList";
+import type { Genre } from "./hooks/useGenres";
 
 function App() {
+  // ✅ shared state (lifted up)
+  const [selectedGenre, setSelectedGenre] = useState<Genre | null>(null);
+
   useEffect(() => {
     const theme = localStorage.getItem("theme");
 
@@ -36,12 +40,12 @@ function App() {
 
       {/* Aside / Genre list (hidden on mobile) */}
       <aside className="hidden lg:block px-2">
-        <GenreList />
+        <GenreList onSelectGenre={(genre) => setSelectedGenre(genre)} />
       </aside>
 
       {/* Main content */}
       <main>
-        <GameGrid />
+        <GameGrid selectedGenre={selectedGenre} />
       </main>
     </div>
   );
