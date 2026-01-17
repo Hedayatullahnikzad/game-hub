@@ -6,6 +6,7 @@ import GenreList from "./components/GenreList";
 import type { Genre } from "./hooks/useGenres";
 import PlatformSelector from "./components/PlatformSelector";
 import type { Platform } from "./hooks/usePlatform";
+import SortSelector from "./components/SortSelector";
 export interface GameQuery {
   genre: Genre | null;
   platform: Platform | null;
@@ -55,12 +56,15 @@ function App() {
 
       {/* Main content */}
       <main>
-        <PlatformSelector
-          selectedPlatform={gameQuery.platform}
-          onSelectPlatform={(platform) =>
-            setGameQuery({ ...gameQuery, platform })
-          }
-        />
+        <div className="flex items-center gap-5 pl-2 mb-5">
+          <PlatformSelector
+            selectedPlatform={gameQuery.platform}
+            onSelectPlatform={(platform) =>
+              setGameQuery({ ...gameQuery, platform })
+            }
+          />
+          <SortSelector />
+        </div>
 
         <GameGrid gameQuery={gameQuery} />
       </main>
