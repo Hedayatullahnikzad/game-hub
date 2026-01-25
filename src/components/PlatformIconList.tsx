@@ -1,4 +1,3 @@
-import React from "react";
 import type { Platform } from "../hooks/useGames";
 import {
   FaWindows,

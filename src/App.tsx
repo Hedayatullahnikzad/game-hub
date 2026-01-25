@@ -65,7 +65,7 @@ function App() {
       <main>
         <div className="pl-2">
           <GameHeading gameQuery={gameQuery} />
-          <div className="flex items-center gap-5 pl-2 mb-5">
+          <div className="flex items-center gap-5 mb-5">
             <PlatformSelector
               selectedPlatform={gameQuery.platform}
               onSelectPlatform={(platform) =>
@@ -80,7 +80,6 @@ function App() {
             />
           </div>
         </div>
-
         <GameGrid gameQuery={gameQuery} />
       </main>
     </div>
